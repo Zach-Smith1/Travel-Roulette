@@ -1,0 +1,39 @@
+h1 {
+  color: white;
+  background-color: black;
+  grid-row: 1;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  padding: 20px;
+  margin: 20px 10px;
+  text-align: center;
+}
+#button1 {
+  margin: 10px 10px;
+  padding: 10px 10px;
+  border-radius: 75%;
+}
+.rightbar {
+  position: relative;
+  grid-column: 2;
+  grid-row: 2;
+}
+.mainbox {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-rows: 1fr 9fr;
+  align-items: baseline;
+}
+.mapbox {
+  grid-column: 1;
+  grid-row: 2;
+  padding: 30px;
+  margin: 10px 10px 10px 50px;
+}
+#location {
+  position: relative;
+  grid-column: 3;
+  grid-row: 2;
+  padding: 40px;
+  margin: 10px 10px 50px 10px;
+}
