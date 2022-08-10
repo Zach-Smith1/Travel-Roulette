@@ -19,26 +19,39 @@ class App extends React.Component {
   var latval = dest.Cities[num].lat;
   var lngval = dest.Cities[num].lng;
   var city = dest.Cities[num].name;
-    this.setState({
+  setTimeout(()=> {this.setState({
       lat: latval,
       lng: lngval,
       zoom: 11,
       current: city
-    })
-  document.body.classList.toggle("top", true);
+    })}, 1000);
+    document.body.classList.toggle("top", false);
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("fade");
+    setTimeout(()=> {document.getElementsByClassName('start')[0].innerHTML = ''}, 2000);
+    setTimeout(() => {document.body.classList.toggle("dark");}, 2500);
+    setTimeout(() => {document.body.classList.toggle("fade");}, 4500);
+    setTimeout(()=> {document.body.classList.toggle("top", true)}, 3500);
   }
+
   randomRegion = (e) => {
     var num = Math.floor(Math.random() * 22) + 1;
     var latval = dest.Regions[num].lat;
     var lngval = dest.Regions[num].lng;
     var area = dest.Regions[num].name;
-      this.setState({
+    setTimeout(()=> {this.setState({
         lat: latval,
         lng: lngval,
         zoom: 8,
         current: area
-      })
-    document.body.classList.toggle("top", true);
+      })}, 1000);
+      document.body.classList.toggle("top", false);
+      document.body.classList.toggle("dark");
+      document.body.classList.toggle("fade");
+      setTimeout(()=> {document.getElementsByClassName('start')[0].innerHTML = ''}, 2000);
+      setTimeout(() => {document.body.classList.toggle("dark");}, 2500);
+      setTimeout(() => {document.body.classList.toggle("fade");}, 4500);
+      setTimeout(()=> {document.body.classList.toggle("top", true)}, 3500);
     }
 
   addPlace = (e) => {
@@ -69,9 +82,18 @@ class App extends React.Component {
     return <div>{resultList}</div>;
   }
 
+  anywhere = (e) => {
+    var coinFlip = Math.random();
+    if (coinFlip > .5) {
+      this.randomCity();
+    } else {
+      this.randomRegion();
+    }
+  }
+
   render() {
     if (this.state.current && this.state.list.indexOf(this.state.current) === - 1) {
-      var addIt = <button onClick={this.addPlace}>Add to Itineray!</button>;
+      var addIt = <button id='button2' onClick={this.addPlace}>Add to Itineray!</button>;
     } else {
       var addIt = null;
     }
@@ -84,26 +106,29 @@ class App extends React.Component {
     }
     return (
       <div className='mainbox'>
-        <h1>
-          Travel Roulette!
+        <h1 className="start">
+          Travel Roulette
         </h1>
         <div className='rightbar'>
-          <div>Top City Destinatinations<br/> from <a href='https://www.lonelyplanet.com/best-in-travel/cities'> Lonely Planet </a>
-        <br/></div>
-        <button id='button1' onClick={this.randomCity}> Find a City </button>
+        <button id='button1' onClick={this.randomCity}> Find a City </button><br/>
+          <div>Top City Destinatinations<br/> from <a href='https://www.lonelyplanet.com/best-in-travel/cities'> Lonely Planet </a><br/>
+          </div>
+        <button id='button1' onClick={this.randomRegion}> Find a Region </button><br/>
         <div>Top Nature Destinatinations<br/> from <a href='https://www.nathab.com/blog/where-to-travel-in-2022/'> NatHab </a>
         <br/></div>
-        <button id='button1' onClick={this.randomRegion}> Find a Region </button>
+        <button id='button1' onClick={this.anywhere}> Go Anywhere </button><br/>
         <span id='clear'>{clear}</span>
         </div>
         <div id='location'>{this.state.current}<br/>
         <span>{addIt}</span>
         </div>
         <div className='mapbox'>
+          <div className='map'>
           <MyComponent lat={this.state.lat} lng={this.state.lng} zoom={this.state.zoom}/>
           </div>
+          </div>
           <div className='farRight'>
-            <div className='itineray'>Itineray:<br/>
+            <div className='itineray'>Itinerary:<br/>
             {this.listMaker()}
             <span><br/>{bookIt}</span>
             </div>

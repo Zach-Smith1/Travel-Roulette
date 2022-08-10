@@ -19,6 +19,7 @@ body {
   margin: 10px 10px;
   padding: 10px 10px;
   border-radius: 75%;
+  font-size: larger;
 }
 .rightbar {
   margin-top: 100px;
@@ -37,24 +38,25 @@ body {
 }
 .mainbox {
   display: grid;
+  background-size: 10%;
   grid-template-columns: 3fr 1fr 1fr;
   grid-template-rows: 100px 100px 5fr;
   align-items: baseline;
+  transition: 5s;
 }
 .mapbox {
   grid-column: 1;
   grid-row: 3;
-  padding: 30px;
-  margin: 10px 10px 10px 50px;
-  transition-duration: 2s;
+  margin: 10px 50px 10px 50px;
+  transition-duration: 4s;
+}
+.map {
+  transition-duration: 5s;
 }
 #location {
   color: white;
-  text-align: left;
-  font-size: small;
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
+  font-size: 1pt;
+  text-align: center;
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row: 2;
@@ -82,6 +84,7 @@ body {
 #clear {
   position: fixed;
   bottom: 50px;
+  background-color: rgb(192, 22, 22);
   transition-duration: 2s;
 }
 #listItem {
@@ -91,13 +94,29 @@ body {
   transition-duration: 2s;
   color: goldenrod
 }
-.dark .mapbox, .dark h1, .dark #location, .dark .rightbar, .dark .itineray, .dark #listItem, dark #clear {
+.dark .map, .dark h1, .dark #location, .dark .rightbar, .dark .itineray, .dark #listItem, .dark #clear {
   opacity: 0;
-  transition-duration: 2s;
+  transition-duration: 1.5s;
+}
+.dark .mainbox {
+  margin: 30px 30px;
+}
+#button2 {
+  opacity: 0;
 }
 .top h1 {
   font-size: 1pt;
   opacity: 0;
+  transition-duration: 1s;
+}
+.top #button2 {
+  opacity: 1;
+  background-color: green;
+  border-radius: 0px;
+  border-color: antiquewhite;
+  border-radius: 10%;
+  position: relative;
+  bottom: 40px;
   transition-duration: 1s;
 }
 .top #location {
@@ -111,10 +130,9 @@ body {
   margin: 10px 10px 50px 10px;
   transition-duration: 3s;
 }
-.top body {
-  z-index: 1000;
-  background-image: url('https://im4.ezgif.com/tmp/ezgif-4-275517ad6c.gif');
+.fade .mapbox {
+  background-image: url('https://i.imgur.com/uhFOdjY.gif');
   background-size: cover;
-  transition-duration: 1s;
+  transition-duration: 2s;
 }
 
