@@ -42,16 +42,17 @@ body {
   grid-template-columns: 3fr 1fr 1fr;
   grid-template-rows: 100px 100px 5fr;
   align-items: baseline;
+  padding: 26px;
   transition: 5s;
 }
 .mapbox {
   grid-column: 1;
   grid-row: 3;
-  margin: 10px 50px 10px 50px;
-  transition-duration: 4s;
+  margin: 1vh 10vh;
+  transition-duration: 7s;
 }
 .map {
-  transition-duration: 5s;
+  transition-duration: 2s;
 }
 #location {
   color: white;

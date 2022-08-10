@@ -110,13 +110,13 @@ class App extends React.Component {
           Travel Roulette
         </h1>
         <div className='rightbar'>
-        <button id='button1' onClick={this.randomCity}> Find a City </button><br/>
+        <button id='button1' onClick={this.randomCity}> Choose a City </button><br/>
           <div>Top City Destinatinations<br/> from <a href='https://www.lonelyplanet.com/best-in-travel/cities'> Lonely Planet </a><br/>
           </div>
-        <button id='button1' onClick={this.randomRegion}> Find a Region </button><br/>
+        <button id='button1' onClick={this.randomRegion}> Choose a Region </button><br/>
         <div>Top Nature Destinatinations<br/> from <a href='https://www.nathab.com/blog/where-to-travel-in-2022/'> NatHab </a>
         <br/></div>
-        <button id='button1' onClick={this.anywhere}> Go Anywhere </button><br/>
+        <button id='button1' onClick={this.anywhere}> Choose Anywhere! </button><br/>
         <span id='clear'>{clear}</span>
         </div>
         <div id='location'>{this.state.current}<br/>
