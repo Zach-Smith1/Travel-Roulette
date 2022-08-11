@@ -5,7 +5,7 @@ const compression = require('compression')
 //create server
 var app = express();
 //set port number
-var port = 80;
+var port = 3000;
 //middle ware
 app.use(express.json());
 app.use(express.static('./dist'));
